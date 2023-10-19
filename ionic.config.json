@@ -1,0 +1,7 @@
+{
+  "name": "MediaMemo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
