@@ -27,12 +27,13 @@ const routes: Array<RouteRecordRaw> = [
         path: 'search',
         component: () => import('../views/SearchPage.vue'),
       },
+      {
+        path: '/message/:id',
+        component: () => import('../views/ViewMessagePage.vue')
+      }
     ],
   },
-  {
-    path: '/message/:id',
-    component: () => import('../views/ViewMessagePage.vue')
-  }
+
 ];
 
 const router = createRouter({
