@@ -8,7 +8,7 @@ To get started with testing or contributing to mediaMemo, ensure you have the ne
 
 ### Prerequisites
 
-Follow the [Ionic Framework Documentation](https://ionicframework.com/docs/) to set up your environment.
+Follow the [Ionic Framework Documentation](https://ionicframework.com/docs/intro/environment) to set up your environment.
 
 ### Running the Project
 
