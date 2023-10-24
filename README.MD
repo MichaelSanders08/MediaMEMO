@@ -1,6 +1,6 @@
 # mediaMemo :film_strip: :notes: :video_game:
 
-Welcome to the repository of **mediaMemo**, your go-to media release manager for games, movies, and music (for now). Our primary objective is to engineer the finest user experience (UX) for tracking a piece of media. By focusing on this, we aim to foster a community within our app that promotes personal expression. We envision mediaMemo to be a platform "by the viewers, for the viewers," where everyone can form and share their opinions on various media releases - the go to place for the best, honest, and comprehensive reviews.
+Welcome to the repository of **mediaMemo**, your go-to media release manager for games, movies, and music (for now). Our primary objective is to engineer the finest user experience (UX) for tracking a piece of media. By focusing on this, we aim to foster a community within our app that promotes personal expression. We envision mediaMemo to be a platform "by the viewers, for the viewers," where everyone can form and share their opinions on various media releases - the go-to place for the best, honest, and comprehensive reviews.
 
 ## Getting Started :rocket:
 
@@ -8,7 +8,8 @@ To get started with testing or contributing to mediaMemo, ensure you have the ne
 
 ### Prerequisites
 
-Follow the [Ionic Framework Documentation](https://ionicframework.com/docs/intro/environment) to set up your environment.
+
+Follow the <a href="https://ionicframework.com/docs/intro/environment" target="_blank">Ionic Framework Documentation</a> to set up your environment.
 
 ### Running the Project
 
