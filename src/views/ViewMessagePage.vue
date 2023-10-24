@@ -3,14 +3,21 @@
     <ion-header :translucent="true">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button :text="getBackButtonText()" default-href="/"></ion-back-button>
+          <ion-back-button
+            :text="getBackButtonText()"
+            default-href="/"
+          ></ion-back-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true" v-if="message">
       <ion-item>
-        <ion-icon aria-hidden="true" :icon="personCircle" color="primary"></ion-icon>
+        <ion-icon
+          aria-hidden="true"
+          :icon="personCircle"
+          color="primary"
+        ></ion-icon>
         <ion-label class="ion-text-wrap">
           <h2>
             {{ message.title }}
@@ -18,14 +25,23 @@
               <ion-note>{{ message.date }}</ion-note>
             </span>
           </h2>
-          <h3>To: <ion-note>Me</ion-note></h3>
         </ion-label>
       </ion-item>
 
       <div class="ion-padding">
         <h1>{{ message.genres }}</h1>
         <p>
-            {{ message.description }}
+          {{ message.description }}
+        </p>
+        <p>
+          <ion-button
+            expand="full"
+            :href="message.link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit External Site
+          </ion-button>
         </p>
       </div>
     </ion-content>
@@ -33,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 import {
   IonBackButton,
   IonButtons,
@@ -45,14 +61,14 @@ import {
   IonNote,
   IonPage,
   IonToolbar,
-} from '@ionic/vue';
-import { personCircle } from 'ionicons/icons';
-import { getMessage } from '../data/messages';
+} from "@ionic/vue";
+import { personCircle } from "ionicons/icons";
+import { getMessage } from "../data/messages";
 
 const getBackButtonText = () => {
   const win = window as any;
   const mode = win && win.Ionic && win.Ionic.mode;
-  return mode === 'ios' ? 'Inbox' : '';
+  return mode === "ios" ? "Inbox" : "";
 };
 
 const route = useRoute();
