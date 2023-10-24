@@ -15,7 +15,8 @@ Follow the [Ionic Framework Documentation](https://ionicframework.com/docs/intro
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/mediaMemo.git
+   git clone https://github.com/MichaelSanders08/MediaMEMO.git
+
    cd mediaMemo
    ```
 
