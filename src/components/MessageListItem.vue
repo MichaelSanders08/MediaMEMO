@@ -1,25 +1,37 @@
 <template>
-  <ion-item v-if="message" :routerLink="'/message/' + message.id" :detail="false" class="list-item">
-    <div slot="start" :class="!message.read ? 'dot dot-unread' : 'dot'"></div>
+  <ion-item
+    v-if="message"
+    :routerLink="'/message/' + message.id"
+    :detail="false"
+    class="list-item"
+  >
+    <div slot="start">
+      <ion-img src="file://resources/placeholder.png"></ion-img>
+    </div>
     <ion-label class="ion-text-wrap">
       <h2>
         {{ message.title }}
         <span class="date">
           <ion-note>{{ message.date }}</ion-note>
-          <ion-icon aria-hidden="true" :icon="chevronForward" size="small" v-if="isIos()"></ion-icon>
+          <ion-icon
+            aria-hidden="true"
+            :icon="chevronForward"
+            size="small"
+            v-if="isIos()"
+          ></ion-icon>
         </span>
       </h2>
       <h3>{{ message.genres }}</h3>
       <p>
-          {{ message.description }}
+        {{ message.description }}
       </p>
     </ion-label>
   </ion-item>
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonLabel, IonNote } from '@ionic/vue';
-import { chevronForward } from 'ionicons/icons';
+import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
+import { chevronForward } from "ionicons/icons";
 
 defineProps({
   message: Object,
@@ -27,13 +39,13 @@ defineProps({
 
 const isIos = () => {
   const win = window as any;
-  return win && win.Ionic && win.Ionic.mode === 'ios';
+  return win && win.Ionic && win.Ionic.mode === "ios";
 };
 </script>
 
 <style scoped>
 .list-item {
-  --padding-start: 0;
+  --padding-start: 15px;
   --inner-padding-end: 0;
 }
 
@@ -72,18 +84,5 @@ const isIos = () => {
 
 .list-item ion-note.md {
   margin-right: 14px;
-}
-
-.list-item .dot {
-  display: block;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  align-self: start;
-  margin: 16px 10px 16px 16px;
-}
-
-.list-item .dot-unread {
-  background: var(--ion-color-primary);
 }
 </style>
