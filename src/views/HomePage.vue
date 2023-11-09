@@ -20,11 +20,7 @@
       </ion-refresher>
 
       <ion-list class="ion-content">
-        <MessageListItem
-          v-for="message in messages"
-          :key="message.id"
-          :message="message"
-        />
+        <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie" />
       </ion-list>
     </ion-content>
   </ion-page>
@@ -41,12 +37,12 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/vue";
-import MessageListItem from "@/components/MessageListItem.vue";
-import { getMessages, Message } from "@/data/messages";
+import MovieListItem from "@/components/MovieListItem.vue";
+import { getMovies, Movie } from "@/data/movies";
 import { ref } from "vue";
 import { cog } from "ionicons/icons";
 
-const messages = ref<Message[]>(getMessages());
+const movies = ref<Movie[]>(getMovies());
 
 const refresh = (ev: CustomEvent) => {
   setTimeout(() => {

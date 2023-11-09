@@ -1,4 +1,4 @@
-export interface Message {
+export interface Movie {
   title: string;
   genres: string;
   date: string;
@@ -7,7 +7,7 @@ export interface Message {
   link: string;
 }
 
-const messages: Message[] = [
+const movies: Movie[] = [
   {
     title: "The Domino Revival",
     genres: "Documentary",
@@ -64,6 +64,6 @@ const messages: Message[] = [
   },
 ];
 
-export const getMessages = () => messages;
+export const getMovies = () => movies;
 
-export const getMessage = (id: number) => messages.find((m) => m.id === id);
+export const getMovie = (id: number) => movies.find((m) => m.id === id);

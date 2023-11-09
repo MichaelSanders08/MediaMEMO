@@ -23,13 +23,19 @@
       <ion-searchbar
         style="padding-top: 15px"
         v-model="query"
-        @ionChange="handleSearch"
+        @ionInput="() => {}"
         placeholder="Enter Media"
         animated="true"
       ></ion-searchbar>
     </ion-toolbar>
 
-    <ion-content> </ion-content>
+    <ion-content
+      ><ion-list>
+        <ion-item v-for="movie in filteredMovies" :key="movie.id">
+          {{ movie.title }}
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-page>
 </template>
 
@@ -40,15 +46,42 @@ import {
   IonTitle,
   IonContent,
   IonPage,
+  IonList,
+  IonItem,
+  IonSearchbar,
 } from "@ionic/vue";
 import { cog } from "ionicons/icons";
+import { Movie, getMovies } from "@/data/movies";
 
 export default {
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+  components: {
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonPage,
+    IonList,
+    IonItem,
+    IonSearchbar,
+  },
   data() {
     return {
       query: "",
+      movies: getMovies(),
     };
+  },
+  computed: {
+    filteredMovies(): Movie[] {
+      // This will recompute whenever `query` changes
+      if (!this.query) {
+        return []; // Start with an empty list if there is no query
+      }
+      const result = this.movies.filter((movie) =>
+        movie.title.toLowerCase().includes(this.query.toLowerCase())
+      );
+      console.log(result);
+      return result;
+    },
   },
   setup() {
     return {

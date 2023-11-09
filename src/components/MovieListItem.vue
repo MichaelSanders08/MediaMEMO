@@ -1,7 +1,7 @@
 <template>
   <ion-item
-    v-if="message"
-    :routerLink="'/message/' + message.id"
+    v-if="movie"
+    :routerLink="'/movie/' + movie.id"
     :detail="false"
     class="list-item"
   >
@@ -10,9 +10,9 @@
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
-        {{ message.title }}
+        {{ movie.title }}
         <span class="date">
-          <ion-note>{{ message.date }}</ion-note>
+          <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
             aria-hidden="true"
             :icon="chevronForward"
@@ -21,9 +21,9 @@
           ></ion-icon>
         </span>
       </h2>
-      <h3>{{ message.genres }}</h3>
+      <h3>{{ movie.genres }}</h3>
       <p>
-        {{ message.description }}
+        {{ movie.description }}
       </p>
     </ion-label>
   </ion-item>
@@ -34,7 +34,7 @@ import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
 
 defineProps({
-  message: Object,
+  movie: Object,
 });
 
 const isIos = () => {
