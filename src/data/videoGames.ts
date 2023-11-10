@@ -1,24 +1,26 @@
-export interface VideoGames {
+export interface VideoGame {
   title: string;
   genres: string;
   date: string;
   description: string;
   id: number;
   link: string;
+  image: string;
 }
 
-const videogames: VideoGames[] = [
+const videoGames: VideoGame[] = [
   {
-    title: "The Domino Revival",
-    genres: "Documentary",
-    date: "10/24/2023",
+    title: "Alien Hominid HD",
+    genres: "Action | Indie | Shooter",
+    date: "11/1/2023",
     description:
-      "The Domino Revival takes moviegoers on an extraordinary journey with Mike Signorelli and a group of revivalists during a pivotal period in our nation's history. As society's fascination with the supernatural intensifies, this film unveils the awe-inspiring power of Jesus Christ. Through compelling Gospel preaching, documented miracles, triumph over despair, and liberation from demons, The Domino Revival captures the essence of spiritual hunger and delivers a profound cinematic experience.",
+      "The 2D side-scrolling shooter from The Behemoth is back! With your mighty blaster and a group of mysterious kids by your side, destroy the agency and reclaim your spaceship!",
     id: 0,
-    link: "https://www.imdb.com/title/tt28088015/?ref_=nv_sr_srsg_0_tt_4_nm_0_q_The%2520Domino%2520Revival",
+    link: "https://www.ign.com/games/alien-hominid-hd",
+    image: "https://assets-prd.ignimgs.com/2023/11/01/alien-hominid-hd-button-1698878240358.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
   },
 ];
 
-export const getGames = () => videogames;
+export const getGames = () => videoGames;
 
-export const getGame = (id: number) => videogames.find((m) => m.id === id);
+export const getGame = (id: number) => videoGames.find((m) => m.id === id);

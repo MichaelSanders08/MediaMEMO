@@ -21,6 +21,7 @@
 
       <ion-list class="ion-content">
         <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie" />
+        <VideoGameListItem v-for="videoGame in videoGames" :key="videoGame.id" :videoGame="videoGame" />
       </ion-list>
     </ion-content>
   </ion-page>
@@ -39,10 +40,12 @@ import {
 } from "@ionic/vue";
 import MovieListItem from "@/components/MovieListItem.vue";
 import { getMovies, Movie } from "@/data/movies";
+import { getGames, VideoGame } from "@/data/videoGames";
 import { ref } from "vue";
 import { cog } from "ionicons/icons";
 
 const movies = ref<Movie[]>(getMovies());
+const videoGames = ref<VideoGame[]>(getGames());
 
 const refresh = (ev: CustomEvent) => {
   setTimeout(() => {

@@ -5,6 +5,7 @@ export interface Movie {
   description: string;
   id: number;
   link: string;
+  image: string;
 }
 
 const movies: Movie[] = [
@@ -16,6 +17,7 @@ const movies: Movie[] = [
       "The Domino Revival takes moviegoers on an extraordinary journey with Mike Signorelli and a group of revivalists during a pivotal period in our nation's history. As society's fascination with the supernatural intensifies, this film unveils the awe-inspiring power of Jesus Christ. Through compelling Gospel preaching, documented miracles, triumph over despair, and liberation from demons, The Domino Revival captures the essence of spiritual hunger and delivers a profound cinematic experience.",
     id: 0,
     link: "https://www.imdb.com/title/tt28088015/?ref_=nv_sr_srsg_0_tt_4_nm_0_q_The%2520Domino%2520Revival",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffr.web.img5.acsta.net%2Fpictures%2F23%2F07%2F19%2F23%2F48%2F2518051.jpg%2Fr_5000_x&f=1&nofb=1&ipt=ba34cd37d781263f1fe45454b045cdbdf608624924226e9dc1c191e3003121ec&ipo=images"
   },
   {
     title: "Five Nights at Freddy's",
@@ -25,6 +27,7 @@ const movies: Movie[] = [
       "A troubled security guard begins working at Freddy Fazbear's Pizza. During his first night on the job, he realizes that the night shift won't be so easy to get through. Pretty soon he will unveil what actually happened at Freddy's.",
     id: 1,
     link: "https://www.imdb.com/title/tt4589218/?ref_=fn_al_tt_1",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMDM5NmQyNGYtZmRiMS00NDQwLTkzZGMtYWQyZjBkMmI3MGI2XkEyXkFqcGdeQXVyMTkxNjUyNQ%40%40._V1_.jpg&f=1&nofb=1&ipt=a8cd7446e523d38ca837ff6e7ff5143e25594551f844a518de8417eb4cefae93&ipo=images"
   },
   {
     title: "Freelance",
@@ -34,6 +37,7 @@ const movies: Movie[] = [
       "An ex-special forces operative takes a job to provide security for a journalist as she interviews a dictator, but, a military coup breaks out in the middle of the interview, they are forced to escape into the jungle where they must survive",
     id: 2,
     link: "https://www.imdb.com/title/tt15744298/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Freelance",
+    image: "https://upload.wikimedia.org/wikipedia/en/thumb/7/76/Freelance_film_poster.png/220px-Freelance_film_poster.png"
   },
   {
     title: "After Death",
@@ -43,6 +47,7 @@ const movies: Movie[] = [
       "Based on real near-death experiences, After Death explores the afterlife with the guidance of New York Times bestselling authors, medical experts, scientists, and survivors that shed a light on what awaits us.",
     id: 3,
     link: "https://www.imdb.com/title/tt21191906/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_After%2520Death",
+    image: "https://duckduckgo.com/i/b1adad33.png"
   },
   {
     title: "Suitable Flesh",
@@ -52,6 +57,7 @@ const movies: Movie[] = [
       "A psychiatrist becomes obsessed with one of her young clients with multiple personalities.",
     id: 4,
     link: "https://www.imdb.com/title/tt21397580/?ref_=fn_al_tt_1",
+    image: "https://duckduckgo.com/i/195f0a89.jpg"
   },
   {
     title: "Inspector Sun",
@@ -61,6 +67,7 @@ const movies: Movie[] = [
       "Inspector Sun boards a seemingly normal plane for a much-needed vacation, but when an enigmatic millionaire receives a threat on his life, Sun is back on the case. Trapped in a web of lies, Sun must find the culprit before it's too late.",
     id: 5,
     link: "https://www.imdb.com/title/tt6661616/",
+    image: "https://duckduckgo.com/i/ff8c1860.jpg"
   },
 ];
 

@@ -6,7 +6,8 @@
     class="list-item"
   >
     <div slot="start">
-      <ion-img src="file://resources/placeholder.png"></ion-img>
+      <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
+      <img v-if="movie.image" :src="movie.image" alt="Movie Image" class="movie-image">
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
@@ -45,7 +46,7 @@ const isIos = () => {
 
 <style scoped>
 .list-item {
-  --padding-start: 15px;
+  --padding-start: 10px;
   --inner-padding-end: 0;
 }
 
@@ -85,4 +86,11 @@ const isIos = () => {
 .list-item ion-note.md {
   margin-right: 14px;
 }
+
+.list-item .movie-image {
+  max-width: 50px; /* Set the maximum width for the image */
+  margin-left: 5px;
+}
+
 </style>
+
