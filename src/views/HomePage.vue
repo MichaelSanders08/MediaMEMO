@@ -39,6 +39,7 @@ import {
   IonToolbar,
 } from "@ionic/vue";
 import MovieListItem from "@/components/MovieListItem.vue";
+import VideoGameListItem from "@/components/VideoGameListItem.vue";
 import { getMovies, Movie } from "@/data/movies";
 import { getGames, VideoGame } from "@/data/videoGames";
 import { ref } from "vue";

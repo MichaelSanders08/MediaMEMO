@@ -63,7 +63,7 @@
     IonToolbar,
   } from "@ionic/vue";
   import { personCircle } from "ionicons/icons";
-  import { getMovie } from "../data/movies";
+  import { getGame } from "../data/videoGames";
   
   const getBackButtonText = () => {
     const win = window as any;
@@ -72,7 +72,7 @@
   };
   
   const route = useRoute();
-  const videoGame = getMovie(parseInt(route.params.id as string, 10));
+  const videoGame = getGame(parseInt(route.params.id as string, 10));
   </script>
   
   <style scoped>

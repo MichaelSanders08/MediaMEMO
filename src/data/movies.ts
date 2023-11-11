@@ -69,6 +69,46 @@ const movies: Movie[] = [
     link: "https://www.imdb.com/title/tt6661616/",
     image: "https://duckduckgo.com/i/ff8c1860.jpg"
   },
+  {
+    title: "Tiger 3",
+    genres: "Action | Adventure | Thriller",
+    date: "11/11/2023",
+    description:
+      "Plot under wraps",
+    id: 6,
+    link: "https://www.imdb.com/title/tt18411490/?ref_=rlm",
+    image: "https://m.media-amazon.com/images/M/MV5BOWQyZGExNDMtNWVhYy00NjVlLWE4M2YtODlmM2EzMDkzMDY4XkEyXkFqcGdeQXVyOTI3MzI4MzA@._V1_.jpg"
+  },
+  {
+    title: "The Skull",
+    genres: "Sci-Fi",
+    date: "11/12/2023",
+    description:
+      "The Skulls is a dream come true. But Luke soon comes to realize just how powerful The Skulls organization really is -- and that the truth, like success, comes at a very high price.",
+    id: 7,
+    link: "https://www.imdb.com/title/tt13848506/?ref_=rlm",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BOTJhNmVlN2UtZGQzYS00MmFjLThjYmYtN2ZhOTI2NDVkOGYxXkEyXkFqcGdeQXVyOTI4NzcxNjY%40._V1_.jpg&f=1&nofb=1&ipt=e9efb3f573f4a63c9aa88bc5583ca70a2f32ad36b3d170eda283b8a42d6d1c12&ipo=images"
+  },
+  {
+    title: "Billy Idol: State Line",
+    genres: "Music",
+    date: "11/15/2023",
+    description:
+      "A docu-concert feature film that starts with a mini-doc about HOOVER DAM and finishes with the first ever Rock and Roll show performed and filmed at the world famous landmark. The live event took place on 8th April 2023.",
+    id: 8,
+    link: "https://www.imdb.com/title/tt29609592/?ref_=rlm",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.4fsefrk2abrPyhkRhWGIfA%26pid%3DApi&f=1&ipt=9cc0bc57d6357a03db2c8756bb82e41536feb7d5b7c290f36fdd14045e53585b&ipo=images"
+  },
+  {
+    title: "The Hunger Games: The Ballad of Songbirds & Snakes",
+    genres: "Action | Adventure | Drama",
+    date: "11/17/2023",
+    description:
+      "Coriolanus Snow mentors and develops feelings for the female District 12 tribute during the 10th Hunger Games.",
+    id: 9,
+    link: "https://www.imdb.com/title/tt10545296/?ref_=rlm",
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wnypapers.com%2Fcontent%2Fimages%2F109-Ent%2FThe-Hunger-Games-the-Ballad-of-Songbirds-Snakes-key-art.jpg&f=1&nofb=1&ipt=531cd8c10855df2ae36b37f265353413babd7a2a0f4e4ac580d4c0f49ab886d7&ipo=images"
+  },
 ];
 
 export const getMovies = () => movies;
