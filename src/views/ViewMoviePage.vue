@@ -11,7 +11,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true" v-if="message">
+    <ion-content :fullscreen="true" v-if="movie">
       <ion-item>
         <ion-icon
           aria-hidden="true"
@@ -20,23 +20,23 @@
         ></ion-icon>
         <ion-label class="ion-text-wrap">
           <h2>
-            {{ message.title }}
+            {{ movie.title }}
             <span class="date">
-              <ion-note>{{ message.date }}</ion-note>
+              <ion-note>{{ movie.date }}</ion-note>
             </span>
           </h2>
         </ion-label>
       </ion-item>
 
       <div class="ion-padding">
-        <h1>{{ message.genres }}</h1>
+        <h1>{{ movie.genres }}</h1>
         <p>
-          {{ message.description }}
+          {{ movie.description }}
         </p>
         <p>
           <ion-button
             expand="full"
-            :href="message.link"
+            :href="movie.link"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -63,7 +63,7 @@ import {
   IonToolbar,
 } from "@ionic/vue";
 import { personCircle } from "ionicons/icons";
-import { getMessage } from "../data/messages";
+import { getMovie } from "../data/movies";
 
 const getBackButtonText = () => {
   const win = window as any;
@@ -72,7 +72,7 @@ const getBackButtonText = () => {
 };
 
 const route = useRoute();
-const message = getMessage(parseInt(route.params.id as string, 10));
+const movie = getMovie(parseInt(route.params.id as string, 10));
 </script>
 
 <style scoped>

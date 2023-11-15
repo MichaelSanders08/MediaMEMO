@@ -1,39 +1,42 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import Tabs from '../components/Tabs.vue'
+import { createRouter, createWebHistory } from "@ionic/vue-router";
+import { RouteRecordRaw } from "vue-router";
+import Tabs from "@/components/Tabs.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: '/home',
+    path: "/",
+    redirect: "/home",
   },
   {
-    path: '/',
+    path: "/",
     component: Tabs,
     children: [
       {
-        path: '',
-        redirect: '/home',
+        path: "",
+        redirect: "/home",
       },
       {
-        path: 'myList',
-        component: () => import('../views/MyListPage.vue'),
+        path: "myList",
+        component: () => import("../views/MyListPage.vue"),
       },
       {
-        path: 'home',
-        component: () => import('../views/HomePage.vue'),
+        path: "home",
+        component: () => import("../views/HomePage.vue"),
       },
       {
-        path: 'search',
-        component: () => import('../views/SearchPage.vue'),
+        path: "search",
+        component: () => import("../views/SearchPage.vue"),
       },
       {
-        path: '/message/:id',
-        component: () => import('../views/ViewMessagePage.vue')
+        path: "/movie/:id",
+        component: () => import("../views/ViewMoviePage.vue"),
+      },
+      {
+        path: "/videoGame/:id",
+        component: () => import("../views/ViewVideoGamePage.vue")
       }
     ],
   },
-
 ];
 
 const router = createRouter({

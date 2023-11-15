@@ -1,18 +1,19 @@
 <template>
   <ion-item
-    v-if="message"
-    :routerLink="'/message/' + message.id"
+    v-if="movie"
+    :routerLink="'/movie/' + movie.id"
     :detail="false"
     class="list-item"
   >
     <div slot="start">
-      <ion-img src="file://resources/placeholder.png"></ion-img>
+      <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
+      <img v-if="movie.image" :src="movie.image" alt="Movie Image" class="movie-image">
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
-        {{ message.title }}
+        {{ movie.title }}
         <span class="date">
-          <ion-note>{{ message.date }}</ion-note>
+          <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
             aria-hidden="true"
             :icon="chevronForward"
@@ -21,9 +22,9 @@
           ></ion-icon>
         </span>
       </h2>
-      <h3>{{ message.genres }}</h3>
+      <h3>{{ movie.genres }}</h3>
       <p>
-        {{ message.description }}
+        {{ movie.description }}
       </p>
     </ion-label>
   </ion-item>
@@ -34,7 +35,7 @@ import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
 
 defineProps({
-  message: Object,
+  movie: Object,
 });
 
 const isIos = () => {
@@ -45,7 +46,7 @@ const isIos = () => {
 
 <style scoped>
 .list-item {
-  --padding-start: 15px;
+  --padding-start: 10px;
   --inner-padding-end: 0;
 }
 
@@ -85,4 +86,11 @@ const isIos = () => {
 .list-item ion-note.md {
   margin-right: 14px;
 }
+
+.list-item .movie-image {
+  max-width: 50px; /* Set the maximum width for the image */
+  margin-left: 5px;
+}
+
 </style>
+
