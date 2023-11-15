@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
+import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
 
 const addToMyList = () => {
