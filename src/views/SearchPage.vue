@@ -25,14 +25,24 @@
         v-model="query"
         @ionInput="() => {}"
         placeholder="Enter Media"
-        animated="true"
       ></ion-searchbar>
     </ion-toolbar>
 
-    <ion-content
-      ><ion-list>
-        <ion-item v-for="movie in filteredMovies" :key="movie.id">
+    <ion-content>
+      <ion-list>
+        <ion-item v-for="movie in filteredMovies" :key="movie.id"
+          :routerLink="'/movie/' + movie.id"
+          :detail="false"
+          class="list-item"
+        >
           {{ movie.title }}
+        </ion-item>
+        <ion-item v-for="videoGame in filteredVideoGames" :key="videoGame.id"
+          :routerLink="'/videoGame/' + videoGame.id"
+          :detail="false"
+          class="list-item"
+        >
+          {{ videoGame.title }}
         </ion-item>
       </ion-list>
     </ion-content>
@@ -52,6 +62,7 @@ import {
 } from "@ionic/vue";
 import { cog } from "ionicons/icons";
 import { Movie, getMovies } from "@/data/movies";
+import { VideoGame, getGames } from "@/data/videoGames";
 
 export default {
   components: {
@@ -68,6 +79,7 @@ export default {
     return {
       query: "",
       movies: getMovies(),
+      games: getGames(),
     };
   },
   computed: {
@@ -78,6 +90,17 @@ export default {
       }
       const result = this.movies.filter((movie) =>
         movie.title.toLowerCase().includes(this.query.toLowerCase())
+      );
+      console.log(result);
+      return result;
+    },
+    filteredVideoGames(): VideoGame[] {
+      // This will recompute whenever `query` changes
+      if (!this.query) {
+        return []; // Start with an empty list if there is no query
+      }
+      const result = this.games.filter((game) =>
+        game.title.toLowerCase().includes(this.query.toLowerCase())
       );
       console.log(result);
       return result;
