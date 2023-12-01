@@ -17,9 +17,21 @@
       <h2 id="section-header" class="centered-header">Recommended</h2>
       
       <div>
-        <ion-button @click="filterByType('movie')">Show Movies</ion-button>
-        <ion-button @click="filterByType('videoGame')">Show Video Games</ion-button>
-        <ion-button @click="showAll">Show All</ion-button>
+        <ion-button 
+          @click="filterByType('movie')"
+          size = "small"
+          >Show Movies
+        </ion-button>
+        <ion-button 
+          @click="filterByType('videoGame')"
+          size = "small"
+          >Show Video Games
+        </ion-button>
+        <ion-button 
+          @click="showAll"
+          size = "small"
+          >Show All
+        </ion-button>
       </div>
       
       <ion-refresher slot="fixed" @ionRefresh="refresh($event)">
