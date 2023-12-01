@@ -22,7 +22,7 @@
           ></ion-icon>
         </span>
       </h2>
-      <ion-button @click.stop="addToMyList" class="add-to-list-button">
+      <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button">
         Add to List
       </ion-button>
       <h3>{{ movie.genres }}</h3>
@@ -37,8 +37,9 @@
 import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
 
-const addToMyList = () => {
+const addToMyList = (movie) => {
   // Add your logic here to handle the "Add to List" button click
+  console.log(movie.inList);
   console.log('Movie added to list!');
 };
 defineProps({
