@@ -22,9 +22,12 @@
           ></ion-icon>
         </span>
       </h2>
-      <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button">
-        Add to List
-      </ion-button>
+      <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button" v-if="!movie.inList">
+          Add to List
+        </ion-button>
+        <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button" v-if="movie.inList">
+          Remove from List
+        </ion-button>
       <h3>{{ movie.genres }}</h3>
       <p>
         {{ movie.description }}

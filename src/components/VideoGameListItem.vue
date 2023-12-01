@@ -22,8 +22,11 @@
             ></ion-icon>
           </span>
         </h2>
-        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button">
-        Add to List
+        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button" v-if="!videoGame.inList">
+          Add to List
+        </ion-button>
+        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button" v-if="videoGame.inList">
+          Remove from List
         </ion-button>
         <h3>{{ videoGame.genres }}</h3>
         <p>
