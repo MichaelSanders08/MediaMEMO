@@ -97,7 +97,7 @@ const movies: Movie[] = [
       "A docu-concert feature film that starts with a mini-doc about HOOVER DAM and finishes with the first ever Rock and Roll show performed and filmed at the world famous landmark. The live event took place on 8th April 2023.",
     id: 8,
     link: "https://www.imdb.com/title/tt29609592/?ref_=rlm",
-    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.4fsefrk2abrPyhkRhWGIfA%26pid%3DApi&f=1&ipt=9cc0bc57d6357a03db2c8756bb82e41536feb7d5b7c290f36fdd14045e53585b&ipo=images"
+    image: "https://m.media-amazon.com/images/M/MV5BYTJjOWRjYTgtZDY5MS00ZTUwLTliMTUtN2VlMWQzYTA1OGE4XkEyXkFqcGdeQXVyMTA2MTQ0OTkz._V1_FMjpg_UX1000_.jpg"
   },
   {
     title: "The Hunger Games: The Ballad of Songbirds & Snakes",
