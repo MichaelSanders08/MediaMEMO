@@ -20,8 +20,8 @@
         </ion-refresher>
   
         <ion-list class="ion-content">
-          <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie" />
-          <VideoGameListItem v-for="videoGame in videoGames" :key="videoGame.id" :videoGame="videoGame" />
+          <MovieListItem v-for="movie in movies" :key="movie.id" :movie="movie"/>
+          <VideoGameListItem v-for="videoGame in videoGames" :key="videoGame.id" :videoGame="videoGame"/>
         </ion-list>
       </ion-content>
     </ion-page>

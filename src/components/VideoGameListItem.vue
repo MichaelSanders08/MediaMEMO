@@ -22,10 +22,10 @@
             ></ion-icon>
           </span>
         </h2>
-        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button" v-if="!videoGame.inList">
+        <ion-button @click.stop="addToMyList()" class="add-to-list-button" v-if="!videoGame.inList">
           Add to List
         </ion-button>
-        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button" v-if="videoGame.inList">
+        <ion-button @click.stop="removeFromMyList()" class="add-to-list-button" v-if="videoGame.inList">
           Remove from List
         </ion-button>
         <h3>{{ videoGame.genres }}</h3>
@@ -37,22 +37,43 @@
   </template>
   
   <script setup lang="ts">
+  import { VideoGame, getGames } from "@/data/videoGames";
   import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
   import { chevronForward } from "ionicons/icons";
+  import { ref } from "vue";
   
-  const addToMyList = (videoGame) => {
-  // Add your logic here to handle the "Add to List" button click
-  console.log(videoGame.inList);
-  console.log('Movie added to list!');
+  const games = ref<VideoGame[]>(getGames());
+
+  const addToMyList = () => {
+    // Add your logic here to handle the "Add to List" button click
+    games.value = games.value.map((g) => {
+      if (g.id === videoGame.id) {
+        g.inList = true;
+      }
+      return g;
+    });
+    console.log (videoGame.inList);
+    console.log('Movie added to list!');
   };
-  defineProps({
-    videoGame: Object,
-  });
-  
+
+  const removeFromMyList = () => {
+    // Add your logic here to handle the "Add to List" button click
+    games.value = games.value.map((g) => {
+      if (g.id === videoGame.id) {
+        g.inList = false;
+      }
+      return g;
+    });
+    console.log (videoGame.inList);
+    console.log('Movie added to list!');
+  };
+
+  const { videoGame } = defineProps(['videoGame']);
+
   const isIos = () => {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === "ios";
-  };
+};
   </script>
   
   <style scoped>

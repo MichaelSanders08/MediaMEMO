@@ -22,10 +22,10 @@
           ></ion-icon>
         </span>
       </h2>
-      <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button" v-if="!movie.inList">
+      <ion-button @click.stop="addToMyList()" class="add-to-list-button" v-if="!movie.inList">
           Add to List
         </ion-button>
-        <ion-button @click.stop="addToMyList(movie)" class="add-to-list-button" v-if="movie.inList">
+        <ion-button @click.stop="removeFromMyList()" class="add-to-list-button" v-if="movie.inList">
           Remove from List
         </ion-button>
       <h3>{{ movie.genres }}</h3>
@@ -37,17 +37,38 @@
 </template>
 
 <script setup lang="ts">
+import { Movie, getMovies } from "@/data/movies";
 import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
+import { ref } from "vue";
 
-const addToMyList = (movie) => {
+const movies = ref<Movie[]>(getMovies());
+
+const addToMyList = () => {
   // Add your logic here to handle the "Add to List" button click
+  movies.value = movies.value.map((m) => {
+    if (m.id === movie.id) {
+      m.inList = true;
+    }
+    return m;
+  });
   console.log(movie.inList);
   console.log('Movie added to list!');
 };
-defineProps({
-  movie: Object,
-});
+
+const removeFromMyList = () => {
+  // Add your logic here to handle the "Add to List" button click
+  movies.value = movies.value.map((m) => {
+    if (m.id === movie.id) {
+      m.inList = false;
+    }
+    return m;
+  });
+  console.log(movie.inList);
+  console.log('Movie added to list!');
+};
+
+const { movie } = defineProps(['movie']);
 
 const isIos = () => {
   const win = window as any;
