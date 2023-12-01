@@ -22,6 +22,9 @@
             ></ion-icon>
           </span>
         </h2>
+        <ion-button @click.stop="addToMyList(videoGame)" class="add-to-list-button">
+        Add to List
+        </ion-button>
         <h3>{{ videoGame.genres }}</h3>
         <p>
           {{ videoGame.description }}
@@ -34,6 +37,11 @@
   import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
   import { chevronForward } from "ionicons/icons";
   
+  const addToMyList = (videoGame) => {
+  // Add your logic here to handle the "Add to List" button click
+  console.log(videoGame.inList);
+  console.log('Movie added to list!');
+  };
   defineProps({
     videoGame: Object,
   });

@@ -19,7 +19,7 @@ const videoGames: VideoGame[] = [
     id: 0,
     link: "https://www.ign.com/games/alien-hominid-hd",
     image: "https://assets-prd.ignimgs.com/2023/11/01/alien-hominid-hd-button-1698878240358.jpg?width=300&crop=1%3A1%2Csmart&auto=webp",
-    inList: false
+    inList: true
   },
   {
     title: "RollerCoaster Tycoon Adventures",
@@ -30,7 +30,7 @@ const videoGames: VideoGame[] = [
     id: 1,
     link: "https://www.ign.com/games/rollercoaster-tycoon-adventures-deluxe",
     image: "https://assets1.ignimgs.com/2018/08/13/rollercoaster-tycoon-adventures-button-0000-1534204044126.jpg?width=300&crop=1%3A1%2Csmart&auto=webp",
-    inList: false
+    inList: true
   },
   {
     title: "Song of Nunu: A League of Legends Story",
@@ -123,5 +123,7 @@ const videoGames: VideoGame[] = [
 ];
 
 export const getGames = () => videoGames;
+
+export const getGamesList = () => videoGames.filter((v) => v.inList === true);
 
 export const getGame = (id: number) => videoGames.find((m) => m.id === id);

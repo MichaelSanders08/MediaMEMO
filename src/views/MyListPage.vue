@@ -40,13 +40,13 @@
   } from "@ionic/vue";
   import MovieListItem from "@/components/MovieListItem.vue";
   import VideoGameListItem from "@/components/VideoGameListItem.vue";
-  import { getMovies, Movie } from "@/data/movies";
-  import { getGames, VideoGame } from "@/data/videoGames";
+  import { getMoviesList, Movie } from "@/data/movies";
+  import { getGamesList, VideoGame } from "@/data/videoGames";
   import { ref } from "vue";
   import { cog } from "ionicons/icons";
   
-  const movies = ref<Movie[]>(getMovies());
-  const videoGames = ref<VideoGame[]>(getGames());
+  const movies = ref<Movie[]>(getMoviesList());
+  const videoGames = ref<VideoGame[]>(getGamesList());
   
   const refresh = (ev: CustomEvent) => {
     setTimeout(() => {

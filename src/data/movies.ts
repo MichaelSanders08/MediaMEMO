@@ -30,7 +30,7 @@ const movies: Movie[] = [
     id: 1,
     link: "https://www.imdb.com/title/tt4589218/?ref_=fn_al_tt_1",
     image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMDM5NmQyNGYtZmRiMS00NDQwLTkzZGMtYWQyZjBkMmI3MGI2XkEyXkFqcGdeQXVyMTkxNjUyNQ%40%40._V1_.jpg&f=1&nofb=1&ipt=a8cd7446e523d38ca837ff6e7ff5143e25594551f844a518de8417eb4cefae93&ipo=images",
-    inList: false
+    inList: true
   },
   {
     title: "Freelance",
@@ -123,5 +123,7 @@ const movies: Movie[] = [
 ];
 
 export const getMovies = () => movies;
+
+export const getMoviesList = () => movies.filter((m) => m.inList === true);
 
 export const getMovie = (id: number) => movies.find((m) => m.id === id);
