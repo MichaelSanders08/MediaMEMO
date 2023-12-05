@@ -7,11 +7,30 @@
   >
     <div slot="start">
       <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
-      <img v-if="movie.image" :src="movie.image" alt="Movie Image" class="movie-image">
+      <img
+        v-if="movie.image"
+        :src="movie.image"
+        alt="Movie Image"
+        class="movie-image"
+      />
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
         {{ movie.title }}
+        <ion-button
+          @click.stop="addToMyList()"
+          class="add-to-list-button"
+          v-if="!movie.inList"
+        >
+          Add to List
+        </ion-button>
+        <ion-button
+          @click.stop="removeFromMyList()"
+          class="add-to-list-button"
+          v-if="movie.inList"
+        >
+          Remove from List
+        </ion-button>
         <span class="date">
           <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
@@ -22,12 +41,7 @@
           ></ion-icon>
         </span>
       </h2>
-      <ion-button @click.stop="addToMyList()" class="add-to-list-button" v-if="!movie.inList">
-          Add to List
-        </ion-button>
-        <ion-button @click.stop="removeFromMyList()" class="add-to-list-button" v-if="movie.inList">
-          Remove from List
-        </ion-button>
+
       <h3>{{ movie.genres }}</h3>
       <p>
         {{ movie.description }}
@@ -53,7 +67,7 @@ const addToMyList = () => {
     return m;
   });
   console.log(movie.inList);
-  console.log('Movie added to list!');
+  console.log("Movie added to list!");
 };
 
 const removeFromMyList = () => {
@@ -65,10 +79,10 @@ const removeFromMyList = () => {
     return m;
   });
   console.log(movie.inList);
-  console.log('Movie added to list!');
+  console.log("Movie added to list!");
 };
 
-const { movie } = defineProps(['movie']);
+const { movie } = defineProps(["movie"]);
 
 const isIos = () => {
   const win = window as any;
@@ -100,7 +114,6 @@ const isIos = () => {
 }
 
 .list-item .date {
-  float: right;
   align-items: center;
   display: flex;
 }
@@ -123,6 +136,8 @@ const isIos = () => {
   max-width: 50px; /* Set the maximum width for the image */
   margin-left: 5px;
 }
-
+.add-to-list-button {
+  float: right;
+  margin-right: 10px;
+}
 </style>
-
