@@ -18,7 +18,7 @@
     <ion-label class="ion-text-wrap">
       <h2>
         {{ movie.title }}
-        <ion-button
+        <!-- <ion-button
           color="primary"
           @click.stop="addToMyList()"
           class="add-to-list-button"
@@ -33,7 +33,7 @@
           v-if="movie.inList"
         >
           Remove from List
-        </ion-button>
+        </ion-button> -->
         <span class="date">
           <ion-note>{{ movie.date }}</ion-note>
           <ion-icon

@@ -44,6 +44,7 @@ import { VideoGame, getGamesList } from "@/data/videoGames";
 import { Movie } from "@/data/movies";  // Import the Movie type here
 
 const { getMyList, removeFromMyList, addToMyList } = useStore();
+
 const movies = ref(getMyList());
 const videoGames = ref<VideoGame[]>(getGamesList());
 
