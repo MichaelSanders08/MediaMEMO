@@ -60,6 +60,7 @@ const { movie, isIos } = defineProps(["movie", "isIos"]);
 const chevronForward = ionChevronForward;
 
 const toggleListStatus = () => {
+  console.log(movie.inList);
   if (movie.inList) {
     removeFromMyList(movie);
   } else {
