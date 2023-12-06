@@ -4,6 +4,7 @@
     :routerLink="'/movie/' + movie.id"
     :detail="false"
     class="list-item"
+    @click.stop="openMoviePage"
   >
     <div slot="start">
       <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
@@ -17,7 +18,7 @@
     <ion-label class="ion-text-wrap">
       <h2>
         {{ movie.title }}
-        <ion-button
+        <!-- <ion-button
           color="primary"
           @click.stop="addToMyList()"
           class="add-to-list-button"
@@ -32,63 +33,81 @@
           v-if="movie.inList"
         >
           Remove from List
-        </ion-button>
+        </ion-button> -->
         <span class="date">
           <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
             aria-hidden="true"
             :icon="chevronForward"
             size="small"
-            v-if="isIos()"
           ></ion-icon>
         </span>
       </h2>
-
       <h3>{{ movie.genres }}</h3>
       <p>
         {{ movie.description }}
       </p>
+      <ion-button
+        @click.stop="toggleListStatus($event)"
+        class="add-to-list-button"
+        v-if="!movie.inList"
+      >
+        Add to List
+      </ion-button>
+      <ion-button
+        @click.stop="toggleListStatus($event)"
+        class="add-to-list-button"
+        v-if="movie.inList"
+      >
+        Remove from List
+      </ion-button>
     </ion-label>
   </ion-item>
 </template>
 
 <script setup lang="ts">
-import { Movie, getMovies } from "@/data/movies";
-import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
-import { chevronForward } from "ionicons/icons";
-import { ref } from "vue";
+import { Movie } from "@/data/movies";
+import { IonIcon } from "@ionic/vue";
+import { chevronForward as ionChevronForward } from "ionicons/icons";
+// import { defineProps } from "vue";
+import { useStore } from "@/store/store";
+import { useRoute } from "vue-router";
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonNote,
+  IonPage,
+  IonToolbar,
+} from "@ionic/vue";
+import { personCircle } from "ionicons/icons";
+import { getMovie } from "../data/movies";
 
-const movies = ref<Movie[]>(getMovies());
+const { addToMyList, removeFromMyList } = useStore();
+const { movie, isIos } = defineProps(["movie", "isIos"]);
+const chevronForward = ionChevronForward;
 
-const addToMyList = () => {
-  // Add your logic here to handle the "Add to List" button click
-  movies.value = movies.value.map((m) => {
-    if (m.id === movie.id) {
-      m.inList = true;
-    }
-    return m;
-  });
-  console.log(movie.inList);
-  console.log("Movie added to list!");
+const toggleListStatus = (event: MouseEvent | TouchEvent) => {
+  event.stopPropagation();
+  if (movie.inList) {
+    removeFromMyList(movie);
+  } else {
+    addToMyList(movie);
+  }
 };
 
-const removeFromMyList = () => {
-  // Add your logic here to handle the "Add to List" button click
-  movies.value = movies.value.map((m) => {
-    if (m.id === movie.id) {
-      m.inList = false;
-    }
-    return m;
-  });
-  console.log(movie.inList);
-  console.log("Movie added to list!");
-};
+const openMoviePage = () => {
+  const getBackButtonText = () => {
+    const win = window as any;
+    const mode = win && win.Ionic && win.Ionic.mode;
+    return mode === "ios" ? "Inbox" : "";
+  };
 
-const { movie } = defineProps(["movie"]);
-
-const isIos = () => {
-  const win = window as any;
-  return win && win.Ionic && win.Ionic.mode === "ios";
+  const route = useRoute();
+  const movie = getMovie(parseInt(route.params.id as string, 10));
 };
 </script>
 

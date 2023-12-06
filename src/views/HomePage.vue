@@ -7,7 +7,7 @@
           <ion-icon
             slot="icon-only"
             :icon="cog"
-            style="color: black"
+            style="color: white"
           ></ion-icon>
         </ion-button>
       </IonToolbar>

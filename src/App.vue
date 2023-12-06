@@ -13,3 +13,9 @@ export default defineComponent({
   components: { IonApp, IonRouterOutlet },
 });
 </script>
+
+<style>
+ion-app {
+  background-color: white !important;
+}
+</style>
