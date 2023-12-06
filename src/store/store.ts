@@ -19,9 +19,10 @@ const mutations = {
     }
   },
   removeFromMyList: (movie: Movie) => {
-    if (state.value.myList.some((m) => m.id === movie.id)) {
+    const indexToRemove = state.value.myList.findIndex((m) => m.id === movie.id);
+    if (indexToRemove !== -1) {
       movie.inList = false;
-      state.value.myList.pop();
+      state.value.myList.splice(indexToRemove, 1); // Remove 1 element at the found index
     }
   },
 };
