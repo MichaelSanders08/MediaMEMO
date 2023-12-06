@@ -7,7 +7,12 @@
   >
     <div slot="start">
       <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
-      <img v-if="movie.image" :src="movie.image" alt="Movie Image" class="movie-image">
+      <img
+        v-if="movie.image"
+        :src="movie.image"
+        alt="Movie Image"
+        class="movie-image"
+      />
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
@@ -22,57 +27,45 @@
           ></ion-icon>
         </span>
       </h2>
-      <ion-button @click.stop="addToMyList()" class="add-to-list-button" v-if="!movie.inList">
-          Add to List
-        </ion-button>
-        <ion-button @click.stop="removeFromMyList()" class="add-to-list-button" v-if="movie.inList">
-          Remove from List
-        </ion-button>
       <h3>{{ movie.genres }}</h3>
       <p>
         {{ movie.description }}
       </p>
+      <ion-button
+        @click.stop="toggleListStatus()"
+        class="add-to-list-button"
+        v-if="!movie.inList"
+      >
+        Add to List
+      </ion-button>
+      <ion-button
+        @click.stop="toggleListStatus()"
+        class="add-to-list-button"
+        v-if="movie.inList"
+      >
+        Remove from List
+      </ion-button>
     </ion-label>
   </ion-item>
 </template>
 
 <script setup lang="ts">
-import { Movie, getMovies } from "@/data/movies";
-import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
-import { chevronForward } from "ionicons/icons";
-import { ref } from "vue";
+import { Movie } from "@/data/movies";
+import { IonIcon } from "@ionic/vue";
+import { chevronForward as ionChevronForward } from "ionicons/icons";
+import { defineProps } from "vue";
+import { useStore } from "@/store/store";
 
-const movies = ref<Movie[]>(getMovies());
+const { addToMyList, removeFromMyList } = useStore();
+const { movie, isIos } = defineProps(["movie", "isIos"]);
+const chevronForward = ionChevronForward;
 
-const addToMyList = () => {
-  // Add your logic here to handle the "Add to List" button click
-  movies.value = movies.value.map((m) => {
-    if (m.id === movie.id) {
-      m.inList = true;
-    }
-    return m;
-  });
-  console.log(movie.inList);
-  console.log('Movie added to list!');
-};
-
-const removeFromMyList = () => {
-  // Add your logic here to handle the "Add to List" button click
-  movies.value = movies.value.map((m) => {
-    if (m.id === movie.id) {
-      m.inList = false;
-    }
-    return m;
-  });
-  console.log(movie.inList);
-  console.log('Movie added to list!');
-};
-
-const { movie } = defineProps(['movie']);
-
-const isIos = () => {
-  const win = window as any;
-  return win && win.Ionic && win.Ionic.mode === "ios";
+const toggleListStatus = () => {
+  if (movie.inList) {
+    removeFromMyList(movie);
+  } else {
+    addToMyList(movie);
+  }
 };
 </script>
 
@@ -123,6 +116,4 @@ const isIos = () => {
   max-width: 50px; /* Set the maximum width for the image */
   margin-left: 5px;
 }
-
 </style>
-

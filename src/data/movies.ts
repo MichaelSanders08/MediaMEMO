@@ -1,3 +1,5 @@
+import { addMovieToList } from './src/store/store.ts'; // Update with the correct path
+
 export interface Movie {
   title: string;
   genres: string;
@@ -127,3 +129,4 @@ export const getMovies = () => movies;
 export const getMoviesList = () => movies.filter((m) => m.inList === true);
 
 export const getMovie = (id: number) => movies.find((m) => m.id === id);
+
