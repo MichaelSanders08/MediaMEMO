@@ -5,12 +5,11 @@
     <ion-list>
       <ion-item v-for="comment in comments">
         <div class="header">
-          <h2 class="author">{{ comment.author }}</h2>
+          <p class="author">{{ comment.author }}</p>
           <IonNote> {{ comment.timestamp }}</IonNote>
-
-          <h3 class="comment-text">
+          <p class="comment-text">
             {{ comment.text }}
-          </h3>
+          </p>
         </div>
       </ion-item>
     </ion-list>
@@ -20,13 +19,13 @@
         placeholder="Leave a comment..."
         v-model="newComment"
       ></textarea>
-      <button type="submit">Submit</button>
+      <ion-button type="submit">Submit</ion-button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { IonNote } from "@ionic/vue";
+import { IonNote, IonButton, IonDatetime } from "@ionic/vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
