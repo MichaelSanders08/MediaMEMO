@@ -44,12 +44,14 @@
           </ion-button>
         </p>
       </div>
+      <div><comment-section></comment-section></div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
+import CommentSection from "@/components/CommentSection.vue";
 import {
   IonBackButton,
   IonButtons,
