@@ -4,6 +4,7 @@
     :routerLink="'/movie/' + movie.id"
     :detail="false"
     class="list-item"
+    @click.stop="openMoviePage"
   >
     <div slot="start">
       <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
@@ -31,14 +32,14 @@
         {{ movie.description }}
       </p>
       <ion-button
-        @click.stop="toggleListStatus()"
+        @click.stop="toggleListStatus($event)"
         class="add-to-list-button"
         v-if="!movie.inList"
       >
         Add to List
       </ion-button>
       <ion-button
-        @click.stop="toggleListStatus()"
+        @click.stop="toggleListStatus($event)"
         class="add-to-list-button"
         v-if="movie.inList"
       >
@@ -52,20 +53,45 @@
 import { Movie } from "@/data/movies";
 import { IonIcon } from "@ionic/vue";
 import { chevronForward as ionChevronForward } from "ionicons/icons";
-import { defineProps } from "vue";
+// import { defineProps } from "vue";
 import { useStore } from "@/store/store";
+import { useRoute } from "vue-router";
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonNote,
+  IonPage,
+  IonToolbar,
+} from "@ionic/vue";
+import { personCircle } from "ionicons/icons";
+import { getMovie } from "../data/movies";
 
 const { addToMyList, removeFromMyList } = useStore();
 const { movie, isIos } = defineProps(["movie", "isIos"]);
 const chevronForward = ionChevronForward;
 
-const toggleListStatus = () => {
-  console.log(movie.inList);
+const toggleListStatus = (event: MouseEvent | TouchEvent) => {
+  event.stopPropagation();
   if (movie.inList) {
     removeFromMyList(movie);
   } else {
     addToMyList(movie);
   }
+};
+
+const openMoviePage = () => {
+  const getBackButtonText = () => {
+    const win = window as any;
+    const mode = win && win.Ionic && win.Ionic.mode;
+    return mode === "ios" ? "Inbox" : "";
+  };
+
+  const route = useRoute();
+  const movie = getMovie(parseInt(route.params.id as string, 10));
 };
 </script>
 
