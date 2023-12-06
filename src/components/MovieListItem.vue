@@ -18,6 +18,7 @@
       <h2>
         {{ movie.title }}
         <ion-button
+          color="primary"
           @click.stop="addToMyList()"
           class="add-to-list-button"
           v-if="!movie.inList"
@@ -25,6 +26,7 @@
           Add to List
         </ion-button>
         <ion-button
+          color="primary"
           @click.stop="removeFromMyList()"
           class="add-to-list-button"
           v-if="movie.inList"
