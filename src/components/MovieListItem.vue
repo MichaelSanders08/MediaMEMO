@@ -18,6 +18,22 @@
     <ion-label class="ion-text-wrap">
       <h2>
         {{ movie.title }}
+        <ion-button
+          color="primary"
+          @click.stop="addToMyList()"
+          class="add-to-list-button"
+          v-if="!movie.inList"
+        >
+          Add to List
+        </ion-button>
+        <ion-button
+          color="primary"
+          @click.stop="removeFromMyList()"
+          class="add-to-list-button"
+          v-if="movie.inList"
+        >
+          Remove from List
+        </ion-button>
         <span class="date">
           <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
@@ -119,7 +135,6 @@ const openMoviePage = () => {
 }
 
 .list-item .date {
-  float: right;
   align-items: center;
   display: flex;
 }
@@ -141,5 +156,9 @@ const openMoviePage = () => {
 .list-item .movie-image {
   max-width: 50px; /* Set the maximum width for the image */
   margin-left: 5px;
+}
+.add-to-list-button {
+  float: right;
+  margin-right: 10px;
 }
 </style>
