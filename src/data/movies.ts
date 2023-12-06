@@ -19,7 +19,7 @@ const movies: Movie[] = [
     id: 0,
     link: "https://www.imdb.com/title/tt28088015/?ref_=nv_sr_srsg_0_tt_4_nm_0_q_The%2520Domino%2520Revival",
     image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffr.web.img5.acsta.net%2Fpictures%2F23%2F07%2F19%2F23%2F48%2F2518051.jpg%2Fr_5000_x&f=1&nofb=1&ipt=ba34cd37d781263f1fe45454b045cdbdf608624924226e9dc1c191e3003121ec&ipo=images",
-    inList: true
+    inList: false
   },
   {
     title: "Five Nights at Freddy's",
@@ -30,7 +30,7 @@ const movies: Movie[] = [
     id: 1,
     link: "https://www.imdb.com/title/tt4589218/?ref_=fn_al_tt_1",
     image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMDM5NmQyNGYtZmRiMS00NDQwLTkzZGMtYWQyZjBkMmI3MGI2XkEyXkFqcGdeQXVyMTkxNjUyNQ%40%40._V1_.jpg&f=1&nofb=1&ipt=a8cd7446e523d38ca837ff6e7ff5143e25594551f844a518de8417eb4cefae93&ipo=images",
-    inList: true
+    inList: false
   },
   {
     title: "Freelance",

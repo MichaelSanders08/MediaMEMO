@@ -49,22 +49,21 @@
 </template>
 
 <script setup lang="ts">
-import { Movie } from "@/data/movies";
 import { IonIcon } from "@ionic/vue";
 import { chevronForward as ionChevronForward } from "ionicons/icons";
 import { defineProps } from "vue";
 import { useStore } from "@/store/store";
 
-const { addToMyList, removeFromMyList } = useStore();
-const { movie, isIos } = defineProps(["movie", "isIos"]);
+const { addMovieToMyList, removeMovieFromMyList } = useStore();
+const { movie} = defineProps(["movie"]);
 const chevronForward = ionChevronForward;
 
 const toggleListStatus = () => {
   console.log(movie.inList);
   if (movie.inList) {
-    removeFromMyList(movie);
+    removeMovieFromMyList(movie);
   } else {
-    addToMyList(movie);
+    addMovieToMyList(movie);
   }
 };
 </script>
