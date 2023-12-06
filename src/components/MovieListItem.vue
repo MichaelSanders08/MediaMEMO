@@ -7,11 +7,32 @@
   >
     <div slot="start">
       <!-- <ion-img src="file://resources/placeholder.png"></ion-img> -->
-      <img v-if="movie.image" :src="movie.image" alt="Movie Image" class="movie-image">
+      <img
+        v-if="movie.image"
+        :src="movie.image"
+        alt="Movie Image"
+        class="movie-image"
+      />
     </div>
     <ion-label class="ion-text-wrap">
       <h2>
         {{ movie.title }}
+        <ion-button
+          color="primary"
+          @click.stop="addToMyList()"
+          class="add-to-list-button"
+          v-if="!movie.inList"
+        >
+          Add to List
+        </ion-button>
+        <ion-button
+          color="primary"
+          @click.stop="removeFromMyList()"
+          class="add-to-list-button"
+          v-if="movie.inList"
+        >
+          Remove from List
+        </ion-button>
         <span class="date">
           <ion-note>{{ movie.date }}</ion-note>
           <ion-icon
@@ -22,6 +43,7 @@
           ></ion-icon>
         </span>
       </h2>
+
       <h3>{{ movie.genres }}</h3>
       <p>
         {{ movie.description }}
@@ -31,12 +53,38 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
+import { Movie, getMovies } from "@/data/movies";
+import { IonIcon, IonItem, IonLabel, IonNote, IonButtons } from "@ionic/vue";
 import { chevronForward } from "ionicons/icons";
+import { ref } from "vue";
 
-defineProps({
-  movie: Object,
-});
+const movies = ref<Movie[]>(getMovies());
+
+const addToMyList = () => {
+  // Add your logic here to handle the "Add to List" button click
+  movies.value = movies.value.map((m) => {
+    if (m.id === movie.id) {
+      m.inList = true;
+    }
+    return m;
+  });
+  console.log(movie.inList);
+  console.log("Movie added to list!");
+};
+
+const removeFromMyList = () => {
+  // Add your logic here to handle the "Add to List" button click
+  movies.value = movies.value.map((m) => {
+    if (m.id === movie.id) {
+      m.inList = false;
+    }
+    return m;
+  });
+  console.log(movie.inList);
+  console.log("Movie added to list!");
+};
+
+const { movie } = defineProps(["movie"]);
 
 const isIos = () => {
   const win = window as any;
@@ -68,7 +116,6 @@ const isIos = () => {
 }
 
 .list-item .date {
-  float: right;
   align-items: center;
   display: flex;
 }
@@ -91,6 +138,8 @@ const isIos = () => {
   max-width: 50px; /* Set the maximum width for the image */
   margin-left: 5px;
 }
-
+.add-to-list-button {
+  float: right;
+  margin-right: 10px;
+}
 </style>
-
