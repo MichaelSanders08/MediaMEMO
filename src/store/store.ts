@@ -14,11 +14,15 @@ const getters = {
 const mutations = {
   addToMyList: (movie: Movie) => {
     if (!state.value.myList.some((m) => m.id === movie.id)) {
+      movie.inList = true;
       state.value.myList.push(movie);
     }
   },
   removeFromMyList: (movie: Movie) => {
-    state.value.myList = state.value.myList.filter((m) => m.id !== movie.id);
+    if (state.value.myList.some((m) => m.id === movie.id)) {
+      movie.inList = false;
+      state.value.myList.pop();
+    }
   },
 };
 
