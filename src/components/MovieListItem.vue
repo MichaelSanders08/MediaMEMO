@@ -23,7 +23,6 @@
             aria-hidden="true"
             :icon="chevronForward"
             size="small"
-            v-if="isIos()"
           ></ion-icon>
         </span>
       </h2>

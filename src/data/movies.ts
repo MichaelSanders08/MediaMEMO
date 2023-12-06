@@ -1,5 +1,3 @@
-import { addMovieToList } from './src/store/store.ts'; // Update with the correct path
-
 export interface Movie {
   title: string;
   genres: string;
