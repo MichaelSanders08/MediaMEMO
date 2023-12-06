@@ -1,7 +1,5 @@
 <template>
   <ion-page>
-    <!-- ... (unchanged) ... -->
-
     <ion-content class="ion-content" :fullscreen="true">
       <h2 id="section-header" class="centered-header">My List</h2>
       <ion-refresher slot="fixed" @ionRefresh="refresh($event)">
