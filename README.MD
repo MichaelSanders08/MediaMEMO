@@ -60,3 +60,11 @@ Calendar files are snapshots, not subscriptions. No notifications are sent. No d
 - `legacy/` — original Ionic source, tests, configuration, and README preserved for reference; not included in the current build.
 
 The original MediaMEMO team's work and Git history remain intact. This version carries forward the project’s “by the viewers, for the viewers” intent as a functional personal collection tool.
+
+## Search real catalogs and plug in credentials
+
+In Discover, choose **Search catalogs**. Books use [Open Library](https://openlibrary.org/dev/docs/api/search), series use [TVmaze](https://www.tvmaze.com/api), and music uses [MusicBrainz](https://musicbrainz.org/doc/MusicBrainz_API/Search). These search adapters need no API key. For films, open **Catalog connections** and paste your [TMDB API Read Access Token](https://developer.themoviedb.org/docs/authentication-application). For games, paste a [RAWG API key](https://rawg.io/apidocs). The request/response adapters, credential-denial handling and save-to-library workflow are implemented. No rebuild or code edits are needed.
+
+Credentials exist only in tab memory and clear on reload; they are never committed, sent to GitHub, stored in library exports or included in source links. Browser requests go directly to the named provider. This allows a GitHub Pages site without a backend or shared exposed credentials. Do not put personal provider keys in Vite build variables or repository files. Provider terms, quotas and app eligibility still apply.
+
+Search is explicit, at most 20 results, with a 15-second deadline and no automatic retry loop. Saved results are editable snapshots, not live subscriptions. Book publication years and incomplete music dates are not turned into invented exact calendar dates. TVmaze metadata is credited under CC BY-SA; other providers retain their respective data licenses. The approved TMDB logo is stored unchanged from its official attribution page. Film/game adapter contracts and failures are tested with fixtures; actual key-bearing access needs your own credentials.
