@@ -1,57 +1,62 @@
-# mediaMemo :film_strip: :notes: :video_game:
+# MediaMEMO
 
-Welcome to the repository of **mediaMemo**, your go-to media release manager for games, movies, and music (for now). Our primary objective is to engineer the finest user experience (UX) for tracking a piece of media. By focusing on this, we aim to foster a community within our app that promotes personal expression. We envision mediaMemo to be a platform "by the viewers, for the viewers," where everyone can form and share their opinions on various media releases - the go-to place for the best, honest, and comprehensive reviews.
+**Keep a little culture close.** A personal shelf for films, games, series, music, and books—with release dates, honest notes, and room for your own taste.
 
-## Getting Started :rocket:
+[Open the demo](https://michaelsanders08.github.io/MediaMEMO/)
 
-To get started with testing or contributing to mediaMemo, ensure you have the necessary prerequisites for working with [Ionic](https://ionicframework.com/docs/).
+## A three-minute tour
 
-### Prerequisites
+1. Save a title from **Discover**, or choose **Try a sample shelf** for clearly labeled example activity.
+2. Open it. Set its status, add a rating, mark a favorite, and save a note.
+3. Reload: the library is still there.
+4. **Add your own** title with an upcoming release date. It appears in the release calendar.
+5. Export the shelf as JSON or the release dates as an `.ics` calendar file.
 
+The initial shelf is empty. Sample notes and statuses are created only when you choose the demo; they do not represent your actual opinions or viewing history.
 
-Follow the <a href="https://ionicframework.com/docs/intro/environment" target="_blank">Ionic Framework Documentation</a> to set up your environment.
+## What works
 
-### Running the Project
+- Search the historical starter catalog by title, creator, description, or genre.
+- A unified, duplicate-safe local library for all five media types.
+- Planned, in-progress, finished, paused, and set-aside states.
+- Ratings, favorites, personal notes, custom titles, editable metadata, and removal.
+- Type/status/favorite filters and title/rating/release/added-date sorting.
+- A release calendar grouped by upcoming month, already-released, and unknown dates.
+- A portable JSON backup with atomic validation on import.
+- Calendar export with stable event ids, exclusive all-day end dates, escaping, and Unicode-safe line folding.
+- Responsive layouts, keyboard-accessible dialogs, clear empty states, and storage error handling.
 
-1. **Clone the repository**:
+## Run
 
-   ```bash
-   git clone https://github.com/MichaelSanders08/MediaMEMO.git
+Node **22.18+** and npm:
 
-   cd mediaMemo
-   ```
+```sh
+npm ci
+npm run dev
+npm test
+npm run build
+npm run preview
+```
 
-2. **Install dependencies (while within the project directory)**:
+Build output is `dist/`. Relative assets and hash navigation make the app work on GitHub Pages project paths. CI tests and builds pull requests; successful `main` builds publish through GitHub Pages Actions.
 
-   ```bash
-   npm install
-   ```
+## Honest boundaries
 
-3. **Start the Ionic app**:
+This is a personal, browser-local app. It does not have accounts, cloud synchronization, live release APIs, public reviews, or social features. Notes are private to this browser; they are not presented as community comments.
 
-   ```bash
-   ionic serve
-   ```
+The starter catalog is a small **historical 2023 selection inherited from the original project**, with new short descriptions and geometric cover art. It is neither a current release feed nor personalized recommendations. Dates can vary by territory/platform; source links and editable metadata let you keep your own collection accurate. Series, music, and books can be added manually.
 
-   Doing this within the project's directory will launch the app in your default web browser, and you can explore mediaMemo's current state.
+Local storage uses `mediamemo-library-v1`. Export before clearing browser data or changing devices. JSON imports replace the library only after validation and, when needed, confirmation. Invalid stored data is preserved in recovery mode: Export downloads its original contents and new writes stay in memory until a repaired library is imported. The library allows up to 2,000 entries and 4 MB of serialized text; browser storage limits can be lower. Exports and calendar files contain your saved metadata and notes, so share them intentionally.
 
-## Features :sparkles:
+Calendar files are snapshots, not subscriptions. No notifications are sent. No data is uploaded or fetched by the app; source links are opened only when clicked.
 
-- **Media Tracking**: Effortlessly keep tabs on the release dates and details of your favorite games, movies, and music.
-- **Community Interaction**: Share your thoughts and connect with other enthusiasts.
-- **Personal Expression**: Customize your profile and lists to reflect your unique taste in media.
-- **Robust Review System**: Create and discover comprehensive reviews, fostering a culture of insightful discussions.
+## Development
 
-## Contributing :handshake:
+- `app/App.vue` — Vue interface and browser persistence.
+- `app/library.ts` — typed model, validation, filtering, and calendar serialization.
+- `app/catalog.ts` — historical sample catalog.
+- `app/style.css` — responsive visual system.
+- `tests/library.test.mjs` — core behavior tests, using Node's type stripping.
+- `legacy/` — original Ionic source, tests, configuration, and README preserved for reference; not included in the current build.
 
-We welcome contributions of all kinds from the community. Whether you're a developer, a designer, or just someone with a passion for media, there's a place for you here.
-
-## License :page_facing_up:
-
-This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit/) file for details.
-
----
-
-Crafted with :heart: by the mediaMemo team.
-
----
+The original MediaMEMO team's work and Git history remain intact. This version carries forward the project’s “by the viewers, for the viewers” intent as a functional personal collection tool.
