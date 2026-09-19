@@ -1,0 +1,13 @@
+import type {MediaItem} from './library';
+// A small historical starter catalog inherited from the original 2023 project.
+// Descriptions are original summaries. Release dates are historical, never a live feed.
+export const catalog:MediaItem[]=[
+ {id:'film-fnaf',title:'Five Nights at Freddy’s',type:'film',creator:'Emma Tammi',releaseDate:'2023-10-27',description:'A night shift at an abandoned family entertainment center gets considerably less ordinary.',genres:['Horror','Mystery'],source:'https://www.imdb.com/title/tt4589218/',palette:0,custom:false},
+ {id:'game-sandrock',title:'My Time at Sandrock',type:'game',creator:'Pathea Games',releaseDate:'2023-11-02',description:'Build a workshop, rebuild a community, and find a rhythm in a desert town.',genres:['RPG','Simulation'],source:'https://sandrock.pathea.net/',palette:1,custom:false},
+ {id:'film-songbirds',title:'The Ballad of Songbirds & Snakes',type:'film',creator:'Francis Lawrence',releaseDate:'2023-11-17',description:'Ambition, spectacle, and power take shape in a prequel to The Hunger Games.',genres:['Drama','Adventure'],source:'https://www.imdb.com/title/tt10545296/',palette:2,custom:false},
+ {id:'game-nunu',title:'Song of Nunu',type:'game',creator:'Tequila Works',releaseDate:'2023-11-01',description:'A boy and a yeti cross the Freljord in a story of friendship and discovery.',genres:['Adventure'],source:'https://www.songofnunu.com/',palette:3,custom:false},
+ {id:'film-freelance',title:'Freelance',type:'film',creator:'Pierre Morel',releaseDate:'2023-10-27',description:'A security assignment and a journalistic interview collide with a coup.',genres:['Action','Comedy'],source:'https://www.imdb.com/title/tt15744298/',palette:4,custom:false},
+ {id:'game-king',title:'For the King II',type:'game',creator:'IronOak Games',releaseDate:'2023-11-02',description:'A party-based journey through tactical battles, chance, and a kingdom in turmoil.',genres:['Strategy','RPG'],source:'https://www.forthekinggame.com/',palette:5,custom:false},
+ {id:'film-sun',title:'Inspector Sun',type:'film',creator:'Julio Soto Gúrpide',releaseDate:'2023-10-27',description:'An airborne mystery puts a spider detective among a cabin full of suspects.',genres:['Animation','Mystery'],source:'https://www.imdb.com/title/tt6661616/',palette:6,custom:false},
+ {id:'game-haus',title:'Dead Island 2: Haus',type:'game',creator:'Dambuster Studios',releaseDate:'2023-11-02',description:'A strange cult, an isolated villa, and another chapter in a zombie-infested world.',genres:['Action','Expansion'],source:'https://deadisland.com/',palette:7,custom:false},
+];
